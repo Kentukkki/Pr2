@@ -1,39 +1,47 @@
 #ifndef _MY_COMPLEX_H_
 #define _MY_COMPLEX_H_
+
 #include <iostream>
+
 using namespace std;
-class Complex
-{double Re;
-	double Im; 
-	public:
-Complex(double aRe=0, double aIm=0);
-Complex(const Complex&);
-~Complex(    );
-void Set(double aRe, double aIm=0);
-operator double();
- double abs();
- friend istream& operator>>(   istream&,Complex&) ; 
 
+class complexNumber {
+  double Real;
+  double Imaginary;
 
+ public:
+  complexNumber(double aRe = 0, double aIm = 0);
+  complexNumber(const complexNumber&);
 
-friend ostream& operator<< (ostream&, Complex & );
+  void Set(double aRe, double aIm = 0);
 
-Complex operator+ (const Complex&);
-Complex operator- (const Complex&);
-Complex operator+ (const double&);
-friend 		Complex operator+ (const double&, const Complex&);
-Complex operator- (const double&);
-friend Complex operator- (const 	double&, const Complex&);
-Complex operator* (const Complex&);
-Complex operator* (const double&);
-friend Complex operator* (const double&, const Complex&)    ;Complex operator/ (const double&);
+  double abs();
 
-    Complex& operator+= (const Complex&);
-Complex  &  operator-= (const Complex&)    ;
-    Complex& operator*= (const Complex& );  Complex& operator  += (const double&);
-Complex& operator-= (const double&);
-Complex  &operator  *=(const double  & );
-Complex  & operator /=( const   double & );
-Complex& operator = (  const   Complex&);
-Complex & operator= (const double&);};
+  friend istream& operator>>(istream&, complexNumber&);
+  friend complexNumber operator+(const double&, const complexNumber&);
+  friend ostream& operator<<(ostream&, complexNumber&);
+  friend complexNumber operator-(const double&, const complexNumber&);
+  friend complexNumber operator*(const double&, const complexNumber&);
+
+  operator double();
+
+  complexNumber operator+(const complexNumber&);
+  complexNumber operator-(const complexNumber&);
+  complexNumber operator+(const double&);
+  complexNumber operator-(const double&);
+  complexNumber operator*(const complexNumber&);
+  complexNumber operator*(const double&);
+  complexNumber operator/(const double&);
+  complexNumber& operator+=(const complexNumber&);
+  complexNumber& operator-=(const complexNumber&);
+  complexNumber& operator*=(const complexNumber&);
+  complexNumber& operator+=(const double&);
+  complexNumber& operator-=(const double&);
+  complexNumber& operator*=(const double&);
+  complexNumber& operator/=(const double&);
+  complexNumber& operator=(const complexNumber&);
+  complexNumber& operator=(const double&);
+
+  ~complexNumber();
+};
 #endif

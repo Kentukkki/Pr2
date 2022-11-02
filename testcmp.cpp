@@ -1,16 +1,31 @@
 #include <iostream>
-#include     "mycomplex.h"
+#include "complexNumber.h"
+
 using namespace std;
-int main(){//тестирование класса комплексных чисел
- Complex A,B(-4), C(23.0, 45.9);
-cout<<A <<","<< B<<","<<C <<endl; A=B+C;
-cout<<"A=B+C,A="<< A<<endl;
 
-Complex M=B-C;
-cout<< "M = B - C, M = " << M << endl;cout<<"M*A="<<M*A<<endl;
-cout<<"M/4.45="<<M/4.45<<endl;
+int main() {  
+  complexNumber firstComplex, secondComplex(-4), thirdComplex(23.0, 45.9);
 
-    Complex D;
-  	cout<<"Enter complex number D = "; cin >>D;
- A+=C+D;
-cout << "D = " << D << "\nA = " << A << endl;return 0;}
+  cout << firstComplex << "," << secondComplex << "," << thirdComplex << endl;
+
+  firstComplex = secondComplex + thirdComplex;
+
+  cout << "firstComplex = secondComplex + thirdComplex, firstComplex=" << firstComplex << endl;
+
+  complexNumber subComplex = secondComplex - thirdComplex;
+
+  cout << "subComplex = secondComplex - thirdComplex, subComplex = " << subComplex << endl;
+  cout << "subComplex*firstComplex = " << subComplex * firstComplex << endl;
+  cout << "subComplex/4.45=" << subComplex / 4.45 << endl;
+
+  complexNumber summComplex;
+
+  cout << "Enter complex number summComplex = ";
+  cin >> summComplex;
+
+  firstComplex += thirdComplex + summComplex;
+
+  cout << "summComplex = " << summComplex << "\nfirstComplex = " << firstComplex << endl;
+
+  return 0;
+}
